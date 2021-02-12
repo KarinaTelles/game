@@ -6,6 +6,7 @@ public class Player : MonoBehaviour
 {
     /*public bool player;*/
     public int player;
+    public int speed;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,8 +18,19 @@ public class Player : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.LeftArrow))
         {
-            transform.eulerAngles += new Vector3(0, 0, 1 * Time.deltaTime);//adiciona 1 graus
+            transform.eulerAngles += new Vector3(0, 0, speed * Time.deltaTime);//adiciona 1 graus
         }
-        
+        if (Input.GetKey(KeyCode.RightArrow))
+        {
+            transform.eulerAngles += new Vector3(0, 0, -speed * Time.deltaTime);//adiciona 1 graus
+        }
+        if (Input.GetKey(KeyCode.UpArrow))
+        {
+            transform.position += new Vector3(0, 1 *Time.deltaTime, 0);
+        }
+        if (Input.GetKey(KeyCode.DownArrow))
+        {
+            transform.position += new Vector3(0, -1 * Time.deltaTime, 0);
+        }
     }
 }
