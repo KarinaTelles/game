@@ -28,7 +28,7 @@ public class Player : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            Instantiate(bullet, gun.position, Quaternion.identity);
+            Instantiate(bullet, gun.position, gun.rotation);
         }
             
     }
