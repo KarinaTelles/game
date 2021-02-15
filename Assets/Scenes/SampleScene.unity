@@ -302,4 +302,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: 0
-  speed: 100
+  turn: 100
+  speed: 10

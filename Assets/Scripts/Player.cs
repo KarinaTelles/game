@@ -5,8 +5,9 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     /*public bool player;*/
-    public int player;
-    public int speed;
+    public int player;    
+    [SerializeField] int turn;
+    [SerializeField] int speed;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,21 +17,13 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.LeftArrow))
+        if (Input.GetButton("Vertical"))
         {
-            transform.eulerAngles += new Vector3(0, 0, speed * Time.deltaTime);//adiciona 1 graus
+            transform.position += new Vector3(0, speed * Time.deltaTime * Input.GetAxisRaw("Vertical"), 0);
         }
-        if (Input.GetKey(KeyCode.RightArrow))
+        if (Input.GetButton("Horizontal"))
         {
-            transform.eulerAngles += new Vector3(0, 0, -speed * Time.deltaTime);//adiciona 1 graus
-        }
-        if (Input.GetKey(KeyCode.UpArrow))
-        {
-            transform.position += new Vector3(0, 1 *Time.deltaTime, 0);
-        }
-        if (Input.GetKey(KeyCode.DownArrow))
-        {
-            transform.position += new Vector3(0, -1 * Time.deltaTime, 0);
+            transform.eulerAngles += new Vector3(0, 0, turn * Time.deltaTime * Input.GetAxisRaw("Horizontal"));
         }
     }
 }
