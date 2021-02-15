@@ -7,13 +7,14 @@ public class Player : MonoBehaviour
     /*public bool player;*/
     public int player;    
     [SerializeField] int turn;
-    [SerializeField] int speed;
+    [SerializeField] float speed;
+    [SerializeField] GameObject bullet;
+    [SerializeField] Transform gun;
     // Start is called before the first frame update
     void Start()
     {
         
     }
-
     // Update is called once per frame
     void Update()
     {
@@ -25,5 +26,10 @@ public class Player : MonoBehaviour
         {
             transform.eulerAngles += new Vector3(0, 0, turn * Time.deltaTime * Input.GetAxisRaw("Horizontal"));
         }
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Instantiate(bullet, gun.position, Quaternion.identity);
+        }
+            
     }
 }
