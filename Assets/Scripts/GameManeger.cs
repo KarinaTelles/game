@@ -35,12 +35,18 @@ public class GameManeger : MonoBehaviour
         Player[] player = FindObjectsOfType<Player>();
         players.AddRange(player);
         qualTurno = 0;
-        players[qualTurno].turno = true;
+        players[qualTurno % players.Count].turno = true;
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+    public void PassarTurno()
+    {
+        players[qualTurno % players.Count].turno = false;
+        qualTurno++;
+        players[qualTurno %players.Count].turno = true;
     }
 }

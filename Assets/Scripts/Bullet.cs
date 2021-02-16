@@ -10,6 +10,7 @@ public class Bullet : MonoBehaviour
     void Start()
     {
         direction = transform.right;
+        Destroy(gameObject, 3);
     }
 
     // Update is called once per frame
@@ -31,5 +32,9 @@ public class Bullet : MonoBehaviour
 
         }
 
+    }
+    private void OnDestroy()
+    {
+        GameManeger.instancia.PassarTurno();
     }
 }
