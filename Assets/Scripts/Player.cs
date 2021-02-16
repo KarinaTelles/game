@@ -5,7 +5,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     /*public bool player;*/
-    public int player;    
+    public int player;
     [SerializeField] int turn;
     [SerializeField] float speed;
     [SerializeField] GameObject bullet;
@@ -15,7 +15,7 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
     // Update is called once per frame
     void Update()
@@ -32,9 +32,14 @@ public class Player : MonoBehaviour
             }
             if (Input.GetKeyDown(KeyCode.Space))
             {
-                Instantiate(bullet, gun.position, gun.rotation);
+                var retorno = Instantiate(bullet, gun.position, gun.rotation);
+                retorno.GetComponent<Bullet>().dono = this;
                 turno = false;
             }
-        }  
+        }
+        if(pontosDeVida <= 0)
+        {
+            GameManeger.instancia.GameOVer(this);
+        }
     }
 }

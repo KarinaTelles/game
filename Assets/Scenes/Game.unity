@@ -258,7 +258,7 @@ GameObject:
   - component: {fileID: 100005087}
   m_Layer: 0
   m_Name: Player2
-  m_TagString: Wall
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -275,7 +275,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3c7090c22d386949a58db76667628f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: 0
+  player: 2
   turn: 100
   speed: 10
   bullet: {fileID: 3142587701178260608, guid: 90e7ede65692a9841aa3cd7255f4b816, type: 3}
@@ -509,6 +509,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   players: []
   qualTurno: 0
+  playerQuePerdeu: 0
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -899,7 +900,7 @@ GameObject:
   - component: {fileID: 702831258}
   m_Layer: 0
   m_Name: Player1
-  m_TagString: Wall
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -982,7 +983,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3c7090c22d386949a58db76667628f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: 0
+  player: 1
   turn: 100
   speed: 10
   bullet: {fileID: 3142587701178260608, guid: 90e7ede65692a9841aa3cd7255f4b816, type: 3}

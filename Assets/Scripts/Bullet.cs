@@ -6,6 +6,7 @@ public class Bullet : MonoBehaviour
 {
     [SerializeField] float speed;
     [SerializeField] Vector3 direction;
+    public Player dono;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,7 +21,6 @@ public class Bullet : MonoBehaviour
     }
     void OnCollisionEnter2D(Collision2D col)
     {
-         
         Debug.Log("OnCollisionEnter2D");
         if (col.gameObject.CompareTag("Wall"))
         {
@@ -30,6 +30,14 @@ public class Bullet : MonoBehaviour
                 direction = direction * -1;
             }
 
+        }
+        if (col.gameObject.CompareTag("Player"))
+        {
+            var auxiliar = col.gameObject.GetComponent<Player>();
+            if (auxiliar != dono) 
+            {
+                auxiliar.pontosDeVida-=10;
+            }
         }
 
     }

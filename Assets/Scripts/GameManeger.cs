@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManeger : MonoBehaviour
 { 
@@ -18,6 +19,7 @@ public class GameManeger : MonoBehaviour
     }
     [SerializeField] List<Player> players;
     public int qualTurno = 0;
+    public int playerQuePerdeu;
     private void Awake()
     {
         //garante que só existe uma instancia em todas as cenas. 
@@ -39,14 +41,15 @@ public class GameManeger : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        
-    }
     public void PassarTurno()
     {
         players[qualTurno % players.Count].turno = false;
         qualTurno++;
         players[qualTurno %players.Count].turno = true;
+    }
+    public void GameOVer(Player perdedor)
+    {
+        playerQuePerdeu = perdedor.player;
+        SceneManager.LoadScene(1);
     }
 }
