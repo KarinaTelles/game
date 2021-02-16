@@ -10,6 +10,8 @@ public class Player : MonoBehaviour
     [SerializeField] float speed;
     [SerializeField] GameObject bullet;
     [SerializeField] Transform gun;
+    public bool turno;
+    public int pontosDeVida = 100;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,18 +20,20 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButton("Vertical"))
+        if (turno)
         {
-            transform.position += new Vector3(0, speed * Time.deltaTime * Input.GetAxisRaw("Vertical"), 0);
-        }
-        if (Input.GetButton("Horizontal"))
-        {
-            transform.eulerAngles += new Vector3(0, 0, turn * Time.deltaTime * Input.GetAxisRaw("Horizontal"));
-        }
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            Instantiate(bullet, gun.position, gun.rotation);
-        }
-            
+            if (Input.GetButton("Vertical"))
+            {
+                transform.position += new Vector3(0, speed * Time.deltaTime * Input.GetAxisRaw("Vertical"), 0);
+            }
+            if (Input.GetButton("Horizontal"))
+            {
+                transform.eulerAngles += new Vector3(0, 0, turn * Time.deltaTime * Input.GetAxisRaw("Horizontal"));
+            }
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                Instantiate(bullet, gun.position, gun.rotation);
+            }
+        }  
     }
 }
